@@ -1,0 +1,26 @@
+-- Table: public.empresa
+
+-- DROP TABLE public.empresa;
+
+CREATE TABLE public.empresa
+(
+    id_empresa bigint NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 9223372036854775807 CACHE 1 ),
+    cnpj character varying(14) COLLATE pg_catalog."default",
+    nome_empresa character varying(45) COLLATE pg_catalog."default",
+    contato character varying(12) COLLATE pg_catalog."default",
+    email character varying(40) COLLATE pg_catalog."default",
+    tipo_empresa character varying(20) COLLATE pg_catalog."default",
+    cep character varying(8) COLLATE pg_catalog."default",
+    estado character varying(20) COLLATE pg_catalog."default",
+    cidade character varying(30) COLLATE pg_catalog."default",
+    bairro character varying(30) COLLATE pg_catalog."default",
+    logradouro character varying(50) COLLATE pg_catalog."default",
+    complemento character varying(50) COLLATE pg_catalog."default",
+    razao_social character varying(50) COLLATE pg_catalog."default",
+    CONSTRAINT "Empresa_pkey" PRIMARY KEY (id_empresa)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.empresa
+    OWNER to postgres;
