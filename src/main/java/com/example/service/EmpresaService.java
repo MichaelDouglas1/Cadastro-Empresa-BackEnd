@@ -26,6 +26,8 @@ public class EmpresaService {
 	 public Empresa inserir(Empresa empresa) {
 	        return empresaDAO.save(empresa);
 	    }
+	 
+	 
 	
 	public List<Empresa> getAll() {
 		return empresaDAO.findAll();
@@ -39,6 +41,11 @@ public class EmpresaService {
 	
 	public Empresa getById(Long id) throws Exception {
 		return empresaDAO.findById(id).orElseThrow(() -> new Exception("Erro"));
+	}
+	
+	public Empresa deletar(Long id) {
+		 empresaDAO.deleteById(id);
+		return null;
 	}
 	
 	public List<Empresa> listarPorNomeOuCnpj(String nome, String cnpj) {

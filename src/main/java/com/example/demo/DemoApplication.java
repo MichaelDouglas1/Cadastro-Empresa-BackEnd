@@ -10,6 +10,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -46,6 +47,10 @@ public class DemoApplication {
 		return new ResponseEntity<List<Empresa>>(empresaService.getAll(), new HttpHeaders(), HttpStatus.OK);
 	}
 	
+	@DeleteMapping("/{id}")
+	public ResponseEntity<Empresa> deletar(@PathVariable Long id) {
+        return new ResponseEntity<Empresa>(empresaService.deletar(id), new HttpHeaders(), HttpStatus.OK);
+    }
 	@GetMapping("/paginado")
 	public ResponseEntity<List<Empresa>> listarEmpresas(
 				@RequestParam(defaultValue = "0") Integer pageNo, 
